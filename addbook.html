@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Book</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+
+    form {
+      margin-top: 20px;
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="number"],
+    input[type="text"] {
+      padding: 5px;
+      width: 100%;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Add Book</h1>
+  <form action="LibraryServlet" method="post">
+    <input type="hidden" name="role" value="librarian">
+    <input type="hidden" name="action" value="addBook">
+
+    <div class="form-group">
+      <label for="id">Book ID:</label>
+      <input type="number" name="id" required>
+    </div>
+
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input type="text" name="title" required>
+    </div>
+
+    <div class="form-group">
+      <label for="author">Author:</label>
+      <input type="text" name="author" required>
+    </div>
+
+    <div class="form-group">
+      <label for="quantity">Quantity:</label>
+      <input type="number" name="quantity" required>
+    </div>
+
+    <input type="submit" value="Add Book">
+  </form>
+</body>
+</html>

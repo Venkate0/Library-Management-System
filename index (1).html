@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Library Management System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    form {
+      margin-top: 20px;
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    select {
+      padding: 5px;
+      width: 100%;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+  <script>
+    function updateActions() {
+      var role = document.getElementById("role").value;
+      var actionOptions = document.getElementById("action").options;
+      
+      for (var i = 0; i < actionOptions.length; i++) {
+        var option = actionOptions[i];
+        if ((role === "librarian" && option.classList.contains("librarian-action")) || (role === "student" && option.classList.contains("student-action"))) {
+          option.style.display = "block";
+        } else {
+          option.style.display = "none";
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Welcome to the Library Management System</h1>
+  <form action="LibraryServlet" method="post">
+      <label for="role">Select your role:</label>
+    <select name="role" id="role" onchange="updateActions()">
+      <option value="librarian">Librarian</option>
+      <option value="student">Student</option>
+    </select>
+    <br><br>
+    <label for="action">Select an action:</label>
+    <select name="action" id="action">
+      <option value="addBook" class="librarian-action">Add Book</option>
+      <option value="viewBooks" class="librarian-action student-action">View Books</option>
+      <option value="deleteBook" class="librarian-action">Delete Book</option>
+      <option value="issueBook" class="librarian-action">Issue Book</option>
+      <option value="returnBook" class="librarian-action student-action">Return Book</option>
+      <option value="requestBook" class="student-action">Request Book</option>
+    </select>
+    <br><br>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
+-+
